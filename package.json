@@ -42,6 +42,7 @@
   "dependencies": {
     "@dashkite/bake": "^0.0.6",
     "@dashkite/drn": "link:../drn",
+    "@dashkite/joy": "^0.3.16",
     "@dashkite/sky-local-storage": "link:../sky-local-storage",
     "execa": "5.1.1"
   }

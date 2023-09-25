@@ -1,5 +1,6 @@
 import { Resolvers } from "@dashkite/drn"
 import LocalAddress from "#helpers/local-address"
+import * as Text from "@dashkite/joy/text"
 
 Default =
 

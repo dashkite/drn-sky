@@ -4,6 +4,13 @@ import assert from "@dashkite/assert"
 # MUT
 import * as DRN from "../src"
 
+verify = ({ expect, actual }) ->
+  if expect.start?
+    assert actual.startsWith expect.start
+  if expect.end?
+    assert actual.endsWith expect.end
+
+
 Runner =
 
   scenarios: ( scenarios ) ->
@@ -18,7 +25,7 @@ Runner =
     for name, description of scenario
       test name, Runner[ type ] description
 
-  resolve: ({ uri, description, result, verbose }) -> ->
+  resolve: ({ uri, description, expect, verbose }) -> ->
     
     name = undefined
     
@@ -28,11 +35,7 @@ Runner =
     else if description?
       name = await DRN.resolve description
       console.log description, name if verbose == true
-
-    if result.start?
-      assert name.startsWith result.start
-    if result.end?
-      assert name.endsWith result.end
+    verify { expect, actual: name }
 
   codex: ({ description, expect, verbose }) -> ->
     uri = DRN.encode description
@@ -41,5 +44,10 @@ Runner =
     _description = DRN.decode uri
     console.log [ uri ]: _description if verbose == true
     assert.deepEqual description, _description
+
+  describe: ({ uri, expect, verbose }) -> ->
+    text = await DRN.describe uri
+    console.log [uri]: text if verbose == true
+    verify { expect, actual: text }
 
 export default Runner

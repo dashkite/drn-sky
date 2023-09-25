@@ -11,6 +11,9 @@ dependencies:
   '@dashkite/drn':
     specifier: link:../drn
     version: link:../drn
+  '@dashkite/joy':
+    specifier: ^0.3.16
+    version: 0.3.16
   '@dashkite/sky-local-storage':
     specifier: link:../sky-local-storage
     version: link:../sky-local-storage

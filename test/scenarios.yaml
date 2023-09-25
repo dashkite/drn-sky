@@ -2,7 +2,7 @@ resolve:
   domain:
     uri:
       uri: "drn:domain/modules/dashkite/io"
-      result:
+      expect:
         start: "modules-"
         end: ".dashkite.io"
 
@@ -12,7 +12,7 @@ resolve:
         name: modules
         namespace: dashkite
         tld: io
-      result:
+      expect:
         start: "modules-"
         end: ".dashkite.io"
 
@@ -20,7 +20,7 @@ resolve:
   origin:
     uri:
       uri: "drn:origin/modules/dashkite/io"
-      result:
+      expect:
         start: "https://modules-"
         end: ".dashkite.io"
 
@@ -28,13 +28,13 @@ resolve:
 
     uri/implicit region:
       uri: "drn:s3/modules/dashkite/io"
-      result:
+      expect:
         start: "modules-"
         # defaults to us-east-1
         end: ".dashkite.io.s3.us-east-1.amazonaws.com"
     uri/explicit region:
       uri: "drn:s3/modules/dashkite/io/us-west-1"
-      result:
+      expect:
         start: "modules-"
         end: ".dashkite.io.s3.us-west-1.amazonaws.com"
     
@@ -42,14 +42,14 @@ resolve:
 
     uri/implicit region:
       uri: "drn:s3-website/modules/dashkite/io"
-      result:
+      expect:
         start: "modules-"
         # defaults to us-east-1
         end: ".dashkite.io.s3-website-us-east-1.amazonaws.com"
 
     uri/explicit region:
       uri: "drn:s3-website/modules/dashkite/io/us-west-1"
-      result:
+      expect:
         start: "modules-"
         end: ".dashkite.io.s3-website-us-west-1.amazonaws.com"
       
@@ -61,12 +61,12 @@ resolve:
   # graphene:
   #   simple:
   #     uri: drn:graphene/test/foobar
-  #     result: {}
+  #     expect: {}
 
   lambda:
     simple:
       uri: drn:lambda/dashkite/load-media
-      result:
+      expect:
         start: "dashkite-load-media-"
 
 codex:
@@ -79,3 +79,10 @@ codex:
         tld: io
       expect:
         uri: drn:domain/modules/dashkite/io
+
+describe:
+  domain:
+    simple:
+      uri: drn:lambda/dashkite/load-media
+      expect:
+        start: Dashkite Load-Media Development
