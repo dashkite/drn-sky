@@ -1,0 +1,48 @@
+{
+  "name": "@dashkite/drn-sky",
+  "version": "0.0.0",
+  "description": "DRN API For Sky Environments",
+  "keywords": [],
+  "homepage": "https://github.com/dashkite/drn-sky#readme",
+  "bugs": {
+    "url": "https://github.com/dashkite/drn-sky/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dashkite/drn-sky.git"
+  },
+  "license": "SEE LICENSE IN LICENSE.md",
+  "author": "Daniel Yoder",
+  "exports": {
+    ".": {
+      "browser": "./build/browser/src/index.js",
+      "node": "./build/node/src/index.js"
+    }
+  },
+  "main": "build/node/src/index.js",
+  "files": [
+    "build/browser/src",
+    "build/node/src"
+  ],
+  "imports": {
+    "#helpers/*": "./build/node/src/helpers/*.js"
+  },
+  "scripts": {
+    "test": "genie test",
+    "build": "genie build"
+  },
+  "devDependencies": {
+    "@dashkite/amen": "^0.2.0",
+    "@dashkite/amen-console": "^0.0.2",
+    "@dashkite/assert": "^0.1.4",
+    "@dashkite/genie": "link:../genie",
+    "@dashkite/genie-coffee": "link:../genie-coffee",
+    "@dashkite/genie-yaml": "link:../genie-yaml"
+  },
+  "dependencies": {
+    "@dashkite/bake": "^0.0.6",
+    "@dashkite/drn": "link:../drn",
+    "@dashkite/sky-local-storage": "link:../sky-local-storage",
+    "execa": "5.1.1"
+  }
+}

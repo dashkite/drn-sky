@@ -1,0 +1,81 @@
+resolve:
+  domain:
+    uri:
+      uri: "drn:domain/modules/dashkite/io"
+      result:
+        start: "modules-"
+        end: ".dashkite.io"
+
+    description:
+      description:
+        type: domain
+        name: modules
+        namespace: dashkite
+        tld: io
+      result:
+        start: "modules-"
+        end: ".dashkite.io"
+
+
+  origin:
+    uri:
+      uri: "drn:origin/modules/dashkite/io"
+      result:
+        start: "https://modules-"
+        end: ".dashkite.io"
+
+  s3:
+
+    uri/implicit region:
+      uri: "drn:s3/modules/dashkite/io"
+      result:
+        start: "modules-"
+        # defaults to us-east-1
+        end: ".dashkite.io.s3.us-east-1.amazonaws.com"
+    uri/explicit region:
+      uri: "drn:s3/modules/dashkite/io/us-west-1"
+      result:
+        start: "modules-"
+        end: ".dashkite.io.s3.us-west-1.amazonaws.com"
+    
+  s3-website:
+
+    uri/implicit region:
+      uri: "drn:s3-website/modules/dashkite/io"
+      result:
+        start: "modules-"
+        # defaults to us-east-1
+        end: ".dashkite.io.s3-website-us-east-1.amazonaws.com"
+
+    uri/explicit region:
+      uri: "drn:s3-website/modules/dashkite/io/us-west-1"
+      result:
+        start: "modules-"
+        end: ".dashkite.io.s3-website-us-west-1.amazonaws.com"
+      
+  # TODO need a way to test this
+  # TODO test doesn't fit start/end pattern
+  #      since we just load an address
+  # TODO how to avoid throwing b/c address may not exist?
+
+  # graphene:
+  #   simple:
+  #     uri: drn:graphene/test/foobar
+  #     result: {}
+
+  lambda:
+    simple:
+      uri: drn:lambda/dashkite/load-media
+      result:
+        start: "dashkite-load-media-"
+
+codex:
+  domain:
+    simple:
+      description:
+        type: domain
+        name: modules
+        namespace: dashkite
+        tld: io
+      expect:
+        uri: drn:domain/modules/dashkite/io
