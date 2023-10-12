@@ -1,6 +1,5 @@
 import Domain from "#helpers/domain"
 import { Resolvers } from "@dashkite/drn"
-import { Default } from "./default"
 
 Resolvers.register
   type: "s3"
@@ -9,7 +8,8 @@ Resolvers.register
     region = description.region ? "us-east-1"
     domain = await Domain.from description
     "#{domain}.s3.#{region}.amazonaws.com"
-  describe: Default.describe
+  describe: ( description ) ->
+    Default.describe description
 
 Resolvers.register
   type: "s3-website"
@@ -18,4 +18,5 @@ Resolvers.register
     region = description.region ? "us-east-1"
     domain = await Domain.from description
     "#{domain}.s3-website-#{region}.amazonaws.com"
-  describe: Default.describe
+  describe: ( description ) ->
+    Default.describe description
