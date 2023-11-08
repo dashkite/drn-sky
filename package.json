@@ -36,8 +36,7 @@
     "@dashkite/amen-console": "^0.0.2",
     "@dashkite/assert": "^0.1.4",
     "@dashkite/genie": "link:../genie",
-    "@dashkite/genie-coffee": "link:../genie-coffee",
-    "@dashkite/genie-yaml": "link:../genie-yaml"
+    "@dashkite/genie-coffee": "link:../genie-coffee"
   },
   "dependencies": {
     "@dashkite/bake": "^0.0.6",
