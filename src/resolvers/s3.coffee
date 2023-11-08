@@ -22,7 +22,7 @@ Resolvers.register
 
 Resolvers.register
   type: "s3-website"
-  template: "/s3-website/{name}/{namespace}/{tld}/{region?}"
+  template: "/s3/website/domain/{name}/{namespace}/{tld}/{region?}"
   apply: ( description ) ->
     region = description.region ? "us-east-1"
     domain = await Domain.from description
