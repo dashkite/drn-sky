@@ -13,7 +13,7 @@ import { Resolvers } from "@dashkite/drn"
 
 Resolvers.register
   type: "s3"
-  template: "/s3/{name}/{namespace}/{tld}"
+  template: "/s3/domain/{name}/{namespace}/{tld}"
   apply: ( description ) ->
     domain = await Domain.from description
     "#{ domain }.s3.amazonaws.com"
