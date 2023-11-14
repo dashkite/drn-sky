@@ -12,7 +12,7 @@ Default =
     address = if mode == "development"
       await LocalAddress.get()
     else mode
-    ( "#{namespace}-#{name}-#{address}" )[...32]
+    ( "#{namespace}-#{name}-#{address}" )[...16]
 
   describe: ({ type, namespace, name }) ->
     mode = process.env.mode ? "development"

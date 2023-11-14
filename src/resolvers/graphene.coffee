@@ -2,7 +2,7 @@ import LocalStorage from "@dashkite/sky-local-storage"
 import { Resolvers } from "@dashkite/drn"
 
 Resolvers.register
-  type: "graphene"
+  type: "graphene:db"
   template: "/graphene/{namespace}/{name}"
   apply: ( description ) ->
     Default = Resolvers.dictionary.default
