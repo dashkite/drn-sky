@@ -2,7 +2,13 @@ import Domain from "#helpers/domain"
 import { Resolvers } from "@dashkite/drn"
 
 # helpers for defining generators
-apply = alias = ( type ) ->
+apply = ( type ) ->
+  ( description ) -> 
+    description.region ?= "us-east-1"
+    description.domain = await Domain.from description
+    ( Templates[ type ] description )
+
+alias = ( type ) ->
   ( description ) -> ( Templates[ type ] description )
 
 prefix = ( text, type ) ->

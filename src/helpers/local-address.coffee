@@ -1,5 +1,6 @@
 import OS from "node:os"
 import Crypto from "node:crypto"
+import * as Fn from "@dashkite/joy/function"
 import { command as exec } from "execa"
 import { convert } from "@dashkite/bake"
 
@@ -19,8 +20,18 @@ md5 = (buffer) ->
         .digest()
         .buffer
 
-LocalAddress = do ( address = undefined ) ->
-  get: -> address ?= md5 "#{ getMAC() } #{ await getBranch() }"
+truncate = Fn.curry ( length, text ) -> text[...length]
+
+LocalAddress =
+
+  get: Fn.once Fn.flow [
+    getBranch
+    Fn.pipe [
+      ( branch ) -> "#{ getMAC() } #{ branch }"
+      md5
+      truncate 8 # characters
+    ]
+  ]
 
 export { LocalAddress }
 export default LocalAddress

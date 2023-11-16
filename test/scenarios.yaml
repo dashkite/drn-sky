@@ -27,18 +27,18 @@ resolve:
   s3:
 
     uri/implicit region:
-      uri: "drn:s3/regional/domain/modules/dashkite/io"
+      uri: "drn:s3:domain/modules/dashkite/io"
       expect:
         start: "modules-"
         # defaults to us-east-1
         end: ".dashkite.io.s3.us-east-1.amazonaws.com"
     uri/explicit region:
-      uri: "drn:s3/regional/domain/modules/dashkite/io/us-west-1"
+      uri: "drn:s3:domain/modules/dashkite/io/us-west-1"
       expect:
         start: "modules-"
         end: ".dashkite.io.s3.us-west-1.amazonaws.com"
     global (no region):
-      uri: "drn:s3/global/domain/modules/dashkite/io"
+      uri: "drn:s3:global:domain/modules/dashkite/io"
       expect:
         start: "modules-"
         # defaults to us-east-1
@@ -47,14 +47,14 @@ resolve:
   s3 website:
 
     uri/implicit region:
-      uri: "drn:s3/website/domain/modules/dashkite/io"
+      uri: "drn:s3:website:domain/modules/dashkite/io"
       expect:
         start: "modules-"
         # defaults to us-east-1
         end: ".dashkite.io.s3-website-us-east-1.amazonaws.com"
 
     uri/explicit region:
-      uri: "drn:s3/website/domain/modules/dashkite/io/us-west-1"
+      uri: "drn:s3:website:domain/modules/dashkite/io/us-west-1"
       expect:
         start: "modules-"
         end: ".dashkite.io.s3-website-us-west-1.amazonaws.com"
