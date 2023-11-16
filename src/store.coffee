@@ -3,7 +3,7 @@ import { Resolvers } from "@dashkite/drn"
 store = ( uri, data ) ->
   if ( match = Resolvers.match uri )?
     { resolver } = match
-    if resolve.store?
+    if resolver.store?
       resolver.store uri, data
     else
       throw new Error "unable to store data
@@ -15,7 +15,7 @@ store = ( uri, data ) ->
 remove = ( uri ) ->
   if ( match = Resolvers.match uri )?
     { resolver } = match
-    if resolve.remove?
+    if resolver.remove?
       resolver.remove uri
     else
       throw new Error "unable to remove data
