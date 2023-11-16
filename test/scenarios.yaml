@@ -24,6 +24,19 @@ resolve:
         start: "https://modules-"
         end: ".dashkite.io"
 
+  url:
+    with path:
+      uri: "drn:url/modules/dashkite/io/home"
+      expect:
+        start: "https://modules-"
+        end: ".dashkite.io/home"
+
+    empty path:
+      uri: "drn:url/modules/dashkite/io"
+      expect:
+        start: "https://modules-"
+        end: ".dashkite.io"
+
   s3:
 
     uri/implicit region:
@@ -66,7 +79,7 @@ resolve:
 
   # graphene:
   #   simple:
-  #     uri: drn:graphene/test/foobar
+  #     uri: drn:graphene:db/test/foobar
   #     expect: {}
 
   lambda:

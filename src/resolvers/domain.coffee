@@ -16,3 +16,13 @@ Resolvers.register
   describe: ( description ) ->
     Default.describe description
 
+Resolvers.register
+  type: "url"
+  template: "/url/{name}/{namespace}/{tld}/{path*}"
+  apply: ( description ) ->
+    path = if description.path.length > 0
+      "/" + description.path.join "/"
+    else ""
+    "https://#{ await Domain.from description }#{ path }"
+  describe: ( description ) ->
+    Default.describe description
