@@ -6,6 +6,5 @@ import Runner from "./runner"
 import scenarios from "./scenarios"
 
 do ->
-
   print await test "@dashkite/drn",
     Runner.scenarios scenarios

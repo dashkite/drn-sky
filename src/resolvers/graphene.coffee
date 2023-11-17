@@ -3,7 +3,7 @@ import { Resolvers, decode } from "@dashkite/drn"
 
 Resolvers.register
   type: "graphene:db"
-  template: "/graphene/{namespace}/{name}"
+  template: "/graphene:db/{namespace}/{name}"
   apply: ( description ) ->
     Default = Resolvers.dictionary.default
     name = await Default.apply description
