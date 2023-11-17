@@ -1,5 +1,5 @@
 import LocalStorage from "@dashkite/sky-local-storage"
-import { Resolvers } from "@dashkite/drn"
+import { Resolvers, decode } from "@dashkite/drn"
 
 Resolvers.register
   type: "graphene:db"
@@ -17,11 +17,13 @@ Resolvers.register
     Default.describe description
   
   store: ( drn, { address }) ->
+    description = decode drn
     Default = Resolvers.dictionary.default
     name = await Default.apply description
     LocalStorage.write name, { address }
 
   remove: ( drn ) ->
+    description = decode drn
     Default = Resolvers.dictionary.default
     name = await Default.apply description
     LocalStorage.remove name
