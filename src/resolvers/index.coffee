@@ -7,4 +7,5 @@
 import "./domain"
 import "./s3"
 import "./graphene"
+import "./lambda"
 import "./default"

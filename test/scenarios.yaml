@@ -87,6 +87,11 @@ resolve:
       uri: drn:lambda/dashkite/load-media
       expect:
         start: "dashkite-load-media-"
+    url:
+      uri: drn:lambda:url/dashkite/guardian
+      expect:
+        start: https:// 
+        end: ".lambda-url.us-east-1.on.aws/"
 
 codex:
   domain:
