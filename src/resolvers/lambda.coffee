@@ -1,12 +1,14 @@
 import { Resolvers } from "@dashkite/drn"
-import LocalAddress from "#helpers/local-address"
-import * as Text from "@dashkite/joy/text"
 import {
   hasFunctionURL
   getFunctionURL
 } from "@dashkite/dolores/lambda"
 
-Resolver =
+# lambda names use the default
+
+# references to function URLs
+
+Resolvers.register LambdaURL = 
 
   type: "lambda:url"
 
@@ -27,4 +29,18 @@ Resolver =
     name = await Default.apply { type: "lambda", namespace, name }
     "Function URL for Lambda [ #{ name } ]"
 
-Resolvers.register Resolver
+# function URL domains
+Resolvers.register
+
+  type: "lambda:domain"
+
+  template: "/lambda:domain/{namespace}/{name}"
+
+  apply: ({ namespace, name }) ->
+    url = await LambdaURL.apply { namespace, name }
+    ( new URL url ).hostname
+
+  describe: ({ type, namespace, name }) ->
+    Default = Resolvers.dictionary.default
+    name = await Default.apply { type: "lambda", namespace, name }
+    "Function URL domain for Lambda [ #{ name } ]"
