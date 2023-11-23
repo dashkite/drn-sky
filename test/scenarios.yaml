@@ -98,6 +98,16 @@ resolve:
       expect:
         end: ".lambda-url.us-east-1.on.aws"
 
+# TODO 
+# replace:
+
+#   text:
+
+#   array:
+
+#   object:
+
+
 codex:
   domain:
     simple:
