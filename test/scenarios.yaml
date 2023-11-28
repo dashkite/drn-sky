@@ -82,6 +82,11 @@ resolve:
   #     uri: drn:graphene:db/test/foobar
   #     expect: {}
 
+  sns:
+    simple:
+      uri: drn:topic/dashkite/development 
+      expect: 
+        start: "dashkite-development-"
   lambda:
     simple:
       uri: drn:lambda/dashkite/load-media
