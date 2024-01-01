@@ -103,6 +103,13 @@ resolve:
       expect:
         end: ".lambda-url.us-east-1.on.aws"
 
+  import:
+    url:
+      uri: drn:import:url/dashkite/parse/build/browser/src/index.js
+      expect:
+        start: https://modules
+        end: build/browser/src/index.js
+
 # TODO 
 # replace:
 

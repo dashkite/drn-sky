@@ -20,6 +20,12 @@ dependencies:
   '@dashkite/sky-local-storage':
     specifier: link:../sky-local-storage
     version: link:../sky-local-storage
+  '@dashkite/xrl':
+    specifier: link:../xrl
+    version: link:../xrl
+  '@dashkite/zephyr':
+    specifier: link:../zephyr
+    version: link:../zephyr
   execa:
     specifier: 5.1.1
     version: 5.1.1

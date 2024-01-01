@@ -45,6 +45,8 @@
     "@dashkite/drn": "link:../drn",
     "@dashkite/joy": "^0.3.16",
     "@dashkite/sky-local-storage": "link:../sky-local-storage",
+    "@dashkite/xrl": "link:../xrl",
+    "@dashkite/zephyr": "link:../zephyr",
     "execa": "5.1.1"
   }
 }
