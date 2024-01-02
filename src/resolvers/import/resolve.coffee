@@ -23,7 +23,7 @@ getModuleURL = ({ origin, dependency }) ->
   do ({ scope, name } = dependency.module ) ->
     XRL.join [ 
       origin
-      scope
+      "@#{ scope }"
       name
     ]
 

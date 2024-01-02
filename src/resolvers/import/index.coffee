@@ -6,7 +6,7 @@ DRN.Resolvers.register
   template: "/import:url/{scope}/{name}/{path*}"
   apply: ({ scope, name, path }) ->
     resolve
-      origin: await DRN.resolve "drn:origin/modules/dashkite/io"
+      origin: await DRN.resolve "drn:origin/modules/dashkite/com"
       dependency:
         module: {
           scope
