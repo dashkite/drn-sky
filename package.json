@@ -48,6 +48,7 @@
     "@dashkite/sky-local-storage": "link:../sky-local-storage",
     "@dashkite/xrl": "link:../xrl",
     "@dashkite/zephyr": "link:../zephyr",
-    "execa": "5.1.1"
+    "execa": "5.1.1",
+    "panda-confidential": "^3.1.2"
   }
 }

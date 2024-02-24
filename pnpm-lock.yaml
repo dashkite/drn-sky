@@ -29,6 +29,9 @@ dependencies:
   execa:
     specifier: 5.1.1
     version: 5.1.1
+  panda-confidential:
+    specifier: ^3.1.2
+    version: 3.1.2
 
 devDependencies:
   '@dashkite/amen':
@@ -108,6 +111,10 @@ packages:
   /@dashkite/kaiko@0.3.3:
     resolution: {integrity: sha512-XnAvVr9y2MsDqMLr4A24vkLF7Iuq3E8RjHEEpqhe29P5NevVX9jXKcXUStNMp9MSJbjHd2pqUNiM5Vvdja9ggg==}
     dev: true
+
+  /@dashkite/tweetnacl@1.0.3:
+    resolution: {integrity: sha512-qBw5yhOw8mCe7fV6sw/5DIfQLW3txB+MlSDngf7h2WwnRz5CWzmhVBnKuYHcMXX9u50T4iW0AR/FwEl6Tm/TMQ==}
+    dev: false
 
   /@dashkite/utf8@1.0.1:
     resolution: {integrity: sha512-58HZrEijYUG9p8SAf4o/NR7U3qUq//9XbkQ7T5cHIY/RFjCVg9vpWZlHXkcbZp7v3CAMJgEGVXt/5/upvOBQAw==}
@@ -450,6 +457,14 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       mimic-fn: 2.1.0
+    dev: false
+
+  /panda-confidential@3.1.2:
+    resolution: {integrity: sha512-ERb595LplWijUe8sE5bFUsrl3gvNweqIV9GmpO54Y8jGYRm5/xVCZ/r71OBOVz0nf+jTo4b4A+IDcWbTI5vL5Q==}
+    dependencies:
+      '@dashkite/bake': 0.0.6
+      '@dashkite/joy': 0.3.16
+      '@dashkite/tweetnacl': 1.0.3
     dev: false
 
   /path-key@3.1.1:
