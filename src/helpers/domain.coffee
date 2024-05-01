@@ -18,19 +18,19 @@ Subdomain =
 
 Domain =
 
-  from: ({ namespace, name, tld }) ->
-    switch name
-      when ""
-        if $mode == "production"
-          "#{namespace}.#{tld}"
-        else
-          subdomain = await Subdomain.from { name }
-          "#{subdomain}.#{namespace}.#{tld}"
-      when "*"
-        "*.#{namespace}.#{tld}"
+  from: ({ name, namespace, tld }) ->
+    if name?
+      if $mode == "production"
+        "#{ name }.#{ namespace }.#{tld}"
       else
         subdomain = await Subdomain.from { name }
-        "#{subdomain}.#{namespace}.#{tld}"
+        "#{ subdomain }.#{ namespace }.#{ tld }"
+    else
+      if $mode == "production"
+        "#{ namespace }.#{ tld }"
+      else
+        subdomain = await Subdomain.from name: "apex"
+        "#{ subdomain }.#{ namespace }.#{ tld }"
 
 export { Domain, Subdomain }
 export default Domain
