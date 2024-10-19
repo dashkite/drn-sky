@@ -68,12 +68,26 @@ for scope in [ "regional", "global", "website" ]
             apply: apply qtype
             describe: describe
   
+          Resolvers.register
+            type: qtype
+            template: "/#{ qtype }/{namespace}/{tld}/{region?}"
+            apply: apply qtype
+            describe: describe
+
       when "global"
         # global is always qualified, ex: s3:global:domain
         Resolvers.register
           type: qtype
           # no need for the region parameter here
           template: "/#{ qtype }/{name}/{namespace}/{tld}"
+          apply: apply qtype
+          describe: describe
+
+        # global is always qualified, ex: s3:global:domain
+        Resolvers.register
+          type: qtype
+          # no need for the region parameter here
+          template: "/#{ qtype }/{namespace}/{tld}"
           apply: apply qtype
           describe: describe
 
@@ -90,8 +104,20 @@ for scope in [ "regional", "global", "website" ]
           describe: describe
 
         Resolvers.register
+          type: qtype
+          template: "/#{ qtype }/{namespace}/{tld}/{region?}"
+          apply: apply qtype
+          describe: describe
+
+        Resolvers.register
           type: type
           template: "/#{ type }/{name}/{namespace}/{tld}/{region?}"
+          apply: apply type
+          describe: describe
+
+        Resolvers.register
+          type: type
+          template: "/#{ type }/{namespace}/{tld}/{region?}"
           apply: apply type
           describe: describe
 

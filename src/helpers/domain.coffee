@@ -5,32 +5,26 @@ $mode = process.env.mode ? "development"
 Subdomain =
 
   from: ({ name }) ->
-    if $mode == "production"
-      name
-    else 
-      address = if $mode == "development"
-        await LocalAddress.get()
-      else $mode
-      if name == ""
-        address
-      else
-        "#{name}-#{address}"
+    address = if $mode == "development"
+      await LocalAddress.get()
+    else
+      $mode
+    if name?
+      "#{name}-#{address}"
+    else
+      address
 
 Domain =
 
-  from: ({ name, namespace, tld }) ->
-    if name?
-      if $mode == "production"
+  from: ({ name, namespace, tld }) ->    
+    if $mode == "production"
+      if name?
         "#{ name }.#{ namespace }.#{tld}"
       else
-        subdomain = await Subdomain.from { name }
-        "#{ subdomain }.#{ namespace }.#{ tld }"
-    else
-      if $mode == "production"
         "#{ namespace }.#{ tld }"
-      else
-        subdomain = await Subdomain.from name: "apex"
-        "#{ subdomain }.#{ namespace }.#{ tld }"
+    else
+      subdomain = await Subdomain.from { name }
+      "#{ subdomain }.#{ namespace }.#{ tld }"
 
 export { Domain, Subdomain }
 export default Domain
