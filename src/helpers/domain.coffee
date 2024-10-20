@@ -24,6 +24,7 @@ Domain =
         "#{ namespace }.#{ tld }"
     else
       subdomain = await Subdomain.from { name }
+      console.log domain: "#{ subdomain }.#{ namespace }.#{ tld }"
       "#{ subdomain }.#{ namespace }.#{ tld }"
 
 export { Domain, Subdomain }
