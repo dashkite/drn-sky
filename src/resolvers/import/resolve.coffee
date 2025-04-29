@@ -3,7 +3,6 @@ import Zephyr from "@dashkite/zephyr"
 import XRL from "@dashkite/xrl"
 
 # adapted from Atlas
-# TODO possibly extract this into a module?
 
 getHashes = ({ module }) ->
   Zephyr.read Path.join "..", module.name, ".sky", "hashes.yaml"

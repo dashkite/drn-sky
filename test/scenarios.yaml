@@ -72,10 +72,6 @@ resolve:
         start: "modules-"
         end: ".dashkite.io.s3-website-us-west-1.amazonaws.com"
       
-  # TODO need a way to test this
-  # TODO test doesn't fit start/end pattern
-  #      since we just load an address
-  # TODO how to avoid throwing b/c address may not exist?
 
   # graphene:
   #   simple:
@@ -110,8 +106,6 @@ resolve:
         start: https://modules
         end: build/browser/src/index.js
 
-# TODO 
-# replace:
 
 #   text:
 
