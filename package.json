@@ -49,7 +49,7 @@
     "@dashkite/joy": "^0.3.16",
     "@dashkite/sky-local-storage": "link:../sky-local-storage",
     "@dashkite/xrl": "link:../xrl",
-    "@dashkite/zephyr": "link:../zephyr",
+    "@dashkite/zephyr": "0.3.0",
     "execa": "5.1.1",
     "panda-confidential": "^3.1.2"
   }
