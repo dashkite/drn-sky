@@ -47,7 +47,7 @@
     "@dashkite/dolores": "link:../dolores",
     "@dashkite/drn": "link:../drn",
     "@dashkite/joy": "^0.3.16",
-    "@dashkite/sky-local-storage": "link:../sky-local-storage",
+    "@dashkite/sky-local-storage": "0.1.0",
     "@dashkite/xrl": "link:../xrl",
     "@dashkite/zephyr": "0.3.0",
     "execa": "5.1.1",
