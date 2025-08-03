@@ -15,8 +15,8 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(@aws-sdk/credential-provider-node@3.529.0)
       '@dashkite/drn':
-        specifier: ^0.12.4
-        version: 0.12.4
+        specifier: ^0.12.5
+        version: 0.12.5
       '@dashkite/joy':
         specifier: ^0.7.0
         version: 0.7.0
@@ -879,8 +879,8 @@ packages:
   '@dashkite/dolores@0.8.0':
     resolution: {integrity: sha512-ga+AxqsQcUjW3D5J6mCQqTU7GqJsmnlT9OfqYrmPA3lGJSjk0GqJRQb3RIjoqjjXVszeK8vAW3RdJPx0W7OhNw==}
 
-  '@dashkite/drn@0.12.4':
-    resolution: {integrity: sha512-rdMB1G2NwCP33ZMXrh2HfmuSySYeZwZXVX3Xza0PVo1wkZ7/gniMlRoiYsBL+MiUc4qG6JnSaMcAl6TefFaDQQ==}
+  '@dashkite/drn@0.12.5':
+    resolution: {integrity: sha512-3N1KLg2JjiccegDUPaaWpIrC9pzFGUAAIiMQU1g7ZBa7Bh9n5CSr+rvyyirRF0ZiN97ZRGdlJI0oVGG6kBwIPg==}
 
   '@dashkite/genie-clean@0.9.0':
     resolution: {integrity: sha512-cR5IaFycabxIOH0XrExG5DCrm91milsdPqt104+AcIFEtpthwQ55lgOkS660tC8l7SxnwZzMZbZxHP3oK0iT0A==}
@@ -3969,7 +3969,7 @@ snapshots:
       - aws-crt
       - encoding
 
-  '@dashkite/drn@0.12.4':
+  '@dashkite/drn@0.12.5':
     dependencies:
       '@dashkite/bake': 0.0.6
       '@dashkite/joy': 0.7.0
