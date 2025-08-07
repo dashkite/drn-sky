@@ -45,7 +45,7 @@
   "dependencies": {
     "@dashkite/bake": "^0.0.6",
     "@dashkite/dolores": "^0.8.0",
-    "@dashkite/drn": "^0.12.11",
+    "@dashkite/drn": "^0.12.12",
     "@dashkite/joy": "^0.7.0",
     "@dashkite/sky-local-storage": "^0.8.0",
     "@dashkite/xrl": "^0.4.0",
