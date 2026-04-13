@@ -24,62 +24,96 @@ await remove "drn:graphene:db/my-db"
 
 ## Resolvers
 
-DRN Sky automatically registers the following resource types:
+DRN Sky  registers the resolvers for each of the resource types described below.
+
+> [!Note]
+>
+> In the templates below, the root (`/`) simply denotes the start of the URN. Within a DRN URI, the root would be replaced by the `drn:` scheme.
 
 ### Default
-**Type**: `default`
-**Template**: `/{type}/{namespace}/{name}`
-**Capabilities**: `resolve`
-The default resolver provides environment-aware resource names by appending a local address or environment mode.
+
+The default resolver acts a fallback: if a more specific template isn’t provided, the default template is used.
+
+#### Types
+
+`default`
+
+#### Template
+
+`/{type}/{namespace}/{name}`
 
 ### S3
+
 S3 resolvers provide access to bucket-related metadata across various scopes and subtypes.
 
-#### Scopes
+#### Types
+
+##### Scopes
+
 - **regional**: (Default) Region-specific endpoints.
 - **global**: Region-independent endpoints.
 - **website**: S3 website hosting endpoints.
 
-#### Subtypes
+##### Subtypes
+
 - **domain**: The hostname for the bucket.
 - **origin**: The full HTTPS URL for the bucket hostname.
 - **url**: The S3 path-style URL.
 
-**Types**: `s3:domain`, `s3:origin`, `s3:url`, `s3:regional:domain`, `s3:regional:origin`, `s3:regional:url`, `s3:global:domain`, `s3:global:origin`, `s3:global:url`, `s3:website:domain`, `s3:website:origin`
-**Templates**:
+
+`s3:domain`, `s3:origin`, `s3:url`, `s3:regional:domain`, `s3:regional:origin`, `s3:regional:url`, `s3:global:domain`, `s3:global:origin`, `s3:global:url`, `s3:website:domain`, `s3:website:origin`
+
+#### Templates
+
 - `/{type}/{name}/{namespace}/{tld}/{region?}`
 - `/{type}/{namespace}/{tld}/{region?}`
 - `/{type}/{name}/{namespace}/{tld}` (global)
 - `/{type}/{namespace}/{tld}` (global)
-**Capabilities**: `resolve`
 
 ### Lambda
-**Type**: `lambda:url`, `lambda:domain`
-**Templates**:
+
+#### Types
+
+`lambda:url`, `lambda:domain`
+
+#### Templates
+
 - `/lambda:url/{namespace}/{name}`
 - `/lambda:domain/{namespace}/{name}`
-**Capabilities**: `resolve`
+
 Note: Basic Lambda names (e.g., `drn:lambda:namespace/name`) use the **Default** resolver.
 
 ### Graphene
-**Type**: `graphene:db`
-**Template**: `/graphene:db/{namespace}/{name}`
-**Capabilities**: `resolve`, `store`, `remove`
+
 Provides resolution for Graphene database addresses, supporting local configuration via `store` and `remove`.
 
+#### Type
+
+`graphene:db`
+
+#### Template
+
+`/graphene:db/{namespace}/{name}`
+
 ### Domain
-**Type**: `domain`, `apex domain`, `origin`, `url`
-**Templates**:
+
+#### Type
+
+`domain`, `apex domain`, `origin`, `url`
+
+#### Templates
+
 - `/domain/{name}/{namespace}/{tld}`
 - `/domain/{namespace}/{tld}` (apex)
 - `/origin/{name}/{namespace}/{tld}`
 - `/url/{name}/{namespace}/{tld}/{path*}`
-**Capabilities**: `resolve`
 
 # Technical Notes
 
 ### Storage Dispatch
+
 The `store` and `remove` functions use the same internal router as `resolve` to identify the appropriate resolver. However, they specifically check for the presence of `store` and `remove` methods on the resolver object before execution and throw if they’re absent.
 
 ### DRN Core Integration
+
 DRN Sky exports all functions from the core `@dashkite/drn` package, including `resolve`, `replace`, and `describe`.

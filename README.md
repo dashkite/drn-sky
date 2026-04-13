@@ -2,21 +2,22 @@
 
 *Sky-specific resolvers and storage utilities for Dynamic Resource Names.*
 
-DRN Sky extends the core DRN system with first-class support for Sky cloud resources, including S3, Lambda, Graphene, and custom domains. It also adds a storage interface for writing and removing additional environment-specific configuration data associated with DRNs locally.
+[![Hippocratic License HL3-CORE](https://img.shields.io/static/v1?label=Hippocratic%20License&message=HL3-CORE&labelColor=5e2751&color=bc8c3d)](https://firstdonoharm.dev/version/3/0/core.html)
 
-For example, storing local environment configuration for an S3-backed DRN:
+DRN Sky extends the core DRN system with support for Sky cloud resources, including S3 buckets, Lambdas, Graphene databases, and custom domains. For selected resource types, DRN Sky provides a storage interface for writing and removing additional environment-specific configuration data associated with DRNs locally.
+
+For example, storing local environment configuration for a Graphene-backed DRN:
 
 ```coffeescript
 import { store } from "@dashkite/drn-sky"
 
-await store "drn:s3:my-bucket/config.json", { environment: "local" }
+await store "drn:graphene:db/my-app/my-db", { address: "abc123" }
 ```
 
 ### Features
-- **Cloud Resource Resolvers**: Built-in support for `s3`, `lambda`, `graphene`, and `domain`.
-- **Unified Storage API**: Write data to any resource that supports the `store` operation.
-- **Resource Deletion**: Remove resources using the `remove` function.
-- **Transparent Integration**: Automatically registers all Sky resolvers upon import. Note: While DRN replacement is deep, DRNs themselves cannot be nested.
+- **Cloud Resource Resolvers**: Built-in support for `s3`, `lambda`, `graphene`, `domain`, `origin`, and `url`.
+- **Environment Management**: Easily manage local environment data using the `store` and `remove` functions.
+- **Transparent Integration**: Automatically registers all Sky resolvers upon import. 
 
 ## Installation
 
@@ -37,10 +38,10 @@ import { resolve, store, remove } from "@dashkite/drn-sky"
 bucket = await resolve "drn:s3:my-bucket"
 
 # Store data
-await store "drn:s3:my-bucket/data.txt", "Hello Sky"
+await store "drn:graphene:db/my-app/my-db", { address: "abc123" }
 
 # Remove a resource
-await remove "drn:s3:my-bucket/temporary-file"
+await remove "drn:graphene:db/my-app/my-db"
 ```
 
 ## Other Resources
@@ -49,4 +50,3 @@ await remove "drn:s3:my-bucket/temporary-file"
 
 ## Status
 This software is currently in active development and is not yet suitable for production use. Please report bugs or request features via the repository's issue tracker.
- tracker.
