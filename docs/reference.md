@@ -5,7 +5,7 @@ Detailed API documentation for storage utilities and built-in Sky resolvers.
 ## Storage Utilities
 
 #### store
-$store: drn: string, data: any \dashrightarrow \emptyset$
+$store: drn, data \dashrightarrow \varnothing$
 
 Writes the provided data to the local environment configuration associated with the DRN. This allows for environment-specific overrides or additional metadata to be persisted locally.
 
@@ -14,7 +14,7 @@ await store "drn:graphene:db/my-db", { address: "abc123" }
 ```
 
 #### remove
-$remove: drn: string \dashrightarrow \emptyset$
+$remove: drn \dashrightarrow \varnothing$
 
 Deletes the local environment data associated with the given DRN.
 
