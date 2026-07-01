@@ -1,16 +1,17 @@
 import OS from "node:os"
 import Crypto from "node:crypto"
 import * as Fn from "@dashkite/joy/function"
-import { command as exec } from "execa"
+import execa from "execa"
+
 import { convert } from "@dashkite/bake"
 import LocalStorage from "@dashkite/sky-local-storage"
 import { confidential } from "panda-confidential"
 { randomBytes } = do confidential
 
-run = ( action, options ) ->
-  ( await exec action, { shell: true, options... }).stdout
+getBranch = ->
+  { stdout } = await execa "git", [ "branch", "--show-current" ]
+  stdout
 
-getBranch = -> run "git branch --show-current"
 
 getMachineKey = ->
   if ( configuration = await LocalStorage.read "machine" )?
