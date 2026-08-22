@@ -12,7 +12,7 @@ Resolvers.register LambdaURL =
 
   type: "lambda:url"
 
-  template: "/lambda:url/{namespace}/{name}"
+  template: "drn:lambda:url/{namespace}/{name}"
 
   apply: ({ namespace, name }) ->
     Default = Resolvers.dictionary.default
@@ -34,7 +34,7 @@ Resolvers.register
 
   type: "lambda:domain"
 
-  template: "/lambda:domain/{namespace}/{name}"
+  template: "drn:lambda:domain/{namespace}/{name}"
 
   apply: ({ namespace, name }) ->
     url = await LambdaURL.apply { namespace, name }

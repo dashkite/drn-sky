@@ -3,7 +3,7 @@ import { resolve } from "./resolve"
 
 DRN.Resolvers.register
   type: "import:url"
-  template: "/import:url/{scope}/{name}/{path*}"
+  template: "drn:import:url/{scope}/{name}/{path*}"
   apply: ({ scope, name, path }) ->
     resolve
       origin: await DRN.resolve "drn:origin/modules/dashkite/com"

@@ -27,8 +27,6 @@ Runner =
 
   resolve: ({ uri, description, expect, verbose }) -> ->
     
-    name = undefined
-    
     if uri?
       name = await DRN.resolve uri
       console.log [ uri ]: name if verbose == true

@@ -6,7 +6,7 @@ Default =
 
   type: "default"
 
-  template: "/{type}/{namespace}/{name}"
+  template: "drn:{type}/{namespace}/{name}"
   apply: ({ namespace, name }) ->
     mode = process.env.mode ? "development"
     address = if mode == "development"

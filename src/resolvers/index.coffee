@@ -4,9 +4,9 @@
 # resolver goes last since it's the fallback
 #
 
+import "./default"
 import "./domain"
 import "./s3"
 import "./graphene"
 import "./lambda"
 import "./import"
-import "./default"
